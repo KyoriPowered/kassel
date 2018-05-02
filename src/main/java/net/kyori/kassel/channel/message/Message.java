@@ -21,50 +21,55 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-package net.kyori.kassel.guild.role;
+package net.kyori.kassel.channel.message;
 
-import net.kyori.kassel.Mentionable;
+import net.kyori.kassel.channel.message.embed.Embed;
 import net.kyori.kassel.snowflake.Snowflaked;
-import net.kyori.lunar.Named;
+import net.kyori.kassel.user.User;
 import org.checkerframework.checker.nullness.qual.NonNull;
 
-import java.awt.Color;
-import java.util.Optional;
+import java.util.List;
 
 /**
- * A role.
+ * A message.
  */
-public interface Role extends Mentionable, Named, Snowflaked {
+public interface Message extends Snowflaked {
   /**
-   * Gets the color.
-   *
-   * @return the color
+   * The maximum length of a message.
    */
-  @NonNull Optional<Color> color();
+  int MAXIMUM_LENGTH = 2000;
 
   /**
-   * Checks if this role is mentionable.
+   * Gets the author.
    *
-   * @return {@code true} if mentionable, {@code false} otherwise
+   * @return the author
    */
-  boolean mentionable();
+  @NonNull User author();
 
-  @Override
-  default @NonNull String mention() {
-    return "<@&" + this.id() + ">";
+  /**
+   * Gets the content.
+   *
+   * @return the content
+   */
+  @NonNull String content();
+
+  /**
+   * Gets the embeds.
+   *
+   * @return the embeds
+   */
+  @NonNull List<Embed> embeds();
+
+  /**
+   * Edits this message.
+   *
+   * @param edit the edit
+   */
+  void edit(final @NonNull Edit edit);
+
+  /**
+   * An edit.
+   */
+  interface Edit extends MessagePartial.ContentPartial, MessagePartial.EmbedPartial {
   }
-
-  /**
-   * Checks if this role is managed by an integration.
-   *
-   * @return {@code true} if managed by an integration, {@code false} otherwise
-   */
-  boolean managed();
-
-  /**
-   * Checks if this role is hoisted.
-   *
-   * @return {@code true} if hoisted, {@code false} otherwise
-   */
-  boolean hoist();
 }

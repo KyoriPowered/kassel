@@ -24,9 +24,39 @@
 package net.kyori.kassel.user;
 
 import net.kyori.kassel.snowflake.Snowflaked;
+import org.checkerframework.checker.nullness.qual.NonNull;
+
+import java.util.Optional;
 
 /**
  * A user.
  */
 public interface User extends Snowflaked {
+  /**
+   * Gets the username.
+   *
+   * @return the username
+   */
+  @NonNull String username();
+
+  /**
+   * Gets the discriminator.
+   *
+   * @return the discriminator
+   */
+  @NonNull String discriminator();
+
+  /**
+   * Gets the avatar.
+   *
+   * @return the avatar
+   */
+  @NonNull Optional<String> avatar();
+
+  /**
+   * Checks if this user is a bot.
+   *
+   * @return {@code true} if this user is a bot, {@code false} otherwise
+   */
+  boolean bot();
 }

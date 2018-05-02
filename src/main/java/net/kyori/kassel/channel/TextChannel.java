@@ -23,8 +23,22 @@
  */
 package net.kyori.kassel.channel;
 
+import net.kyori.kassel.channel.message.Message;
+import net.kyori.kassel.message.Messageable;
+import net.kyori.kassel.snowflake.Snowflake;
+import org.checkerframework.checker.nullness.qual.NonNull;
+
+import java.util.Optional;
+
 /**
  * A text channel.
  */
-public interface TextChannel extends Channel {
+public interface TextChannel extends Channel, Messageable {
+  /**
+   * Gets a message by its snowflake id.
+   *
+   * @param id the snowflake id
+   * @return the message
+   */
+  @NonNull Optional<Message> message(final @Snowflake long id);
 }

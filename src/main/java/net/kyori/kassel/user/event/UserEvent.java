@@ -21,50 +21,20 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-package net.kyori.kassel.guild.role;
+package net.kyori.kassel.user.event;
 
-import net.kyori.kassel.Mentionable;
-import net.kyori.kassel.snowflake.Snowflaked;
-import net.kyori.lunar.Named;
+import net.kyori.kassel.event.Event;
+import net.kyori.kassel.user.User;
 import org.checkerframework.checker.nullness.qual.NonNull;
 
-import java.awt.Color;
-import java.util.Optional;
-
 /**
- * A role.
+ * An event involving a user.
  */
-public interface Role extends Mentionable, Named, Snowflaked {
+public interface UserEvent extends Event {
   /**
-   * Gets the color.
+   * Gets the user.
    *
-   * @return the color
+   * @return the user
    */
-  @NonNull Optional<Color> color();
-
-  /**
-   * Checks if this role is mentionable.
-   *
-   * @return {@code true} if mentionable, {@code false} otherwise
-   */
-  boolean mentionable();
-
-  @Override
-  default @NonNull String mention() {
-    return "<@&" + this.id() + ">";
-  }
-
-  /**
-   * Checks if this role is managed by an integration.
-   *
-   * @return {@code true} if managed by an integration, {@code false} otherwise
-   */
-  boolean managed();
-
-  /**
-   * Checks if this role is hoisted.
-   *
-   * @return {@code true} if hoisted, {@code false} otherwise
-   */
-  boolean hoist();
+  @NonNull User user();
 }

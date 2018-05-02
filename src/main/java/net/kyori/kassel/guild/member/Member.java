@@ -26,6 +26,8 @@ package net.kyori.kassel.guild.member;
 import net.kyori.kassel.user.User;
 import org.checkerframework.checker.nullness.qual.NonNull;
 
+import java.util.Optional;
+
 /**
  * A guild member.
  */
@@ -36,4 +38,11 @@ public interface Member {
    * @return the user
    */
   @NonNull User user();
+
+  /**
+   * Gets the nick.
+   *
+   * @return the nick
+   */
+  @NonNull Optional<String> nick();
 }

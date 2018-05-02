@@ -21,50 +21,25 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-package net.kyori.kassel.guild.role;
+package net.kyori.kassel.channel.message.event;
 
-import net.kyori.kassel.Mentionable;
-import net.kyori.kassel.snowflake.Snowflaked;
-import net.kyori.lunar.Named;
 import org.checkerframework.checker.nullness.qual.NonNull;
 
-import java.awt.Color;
-import java.util.Optional;
-
 /**
- * A role.
+ * An event posted when the content of a message in a channel is changed.
  */
-public interface Role extends Mentionable, Named, Snowflaked {
+public interface ChannelMessageContentChangeEvent extends ChannelMessageChangeEvent {
   /**
-   * Gets the color.
+   * Gets the old content.
    *
-   * @return the color
+   * @return the old content
    */
-  @NonNull Optional<Color> color();
+  @NonNull String oldContent();
 
   /**
-   * Checks if this role is mentionable.
+   * Gets the new content.
    *
-   * @return {@code true} if mentionable, {@code false} otherwise
+   * @return the new content
    */
-  boolean mentionable();
-
-  @Override
-  default @NonNull String mention() {
-    return "<@&" + this.id() + ">";
-  }
-
-  /**
-   * Checks if this role is managed by an integration.
-   *
-   * @return {@code true} if managed by an integration, {@code false} otherwise
-   */
-  boolean managed();
-
-  /**
-   * Checks if this role is hoisted.
-   *
-   * @return {@code true} if hoisted, {@code false} otherwise
-   */
-  boolean hoist();
+  @NonNull String newContent();
 }

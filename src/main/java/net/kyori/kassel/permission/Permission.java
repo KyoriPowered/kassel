@@ -21,50 +21,35 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-package net.kyori.kassel.guild.role;
+package net.kyori.kassel.permission;
 
-import net.kyori.kassel.Mentionable;
-import net.kyori.kassel.snowflake.Snowflaked;
-import net.kyori.lunar.Named;
-import org.checkerframework.checker.nullness.qual.NonNull;
-
-import java.awt.Color;
-import java.util.Optional;
-
-/**
- * A role.
- */
-public interface Role extends Mentionable, Named, Snowflaked {
-  /**
-   * Gets the color.
-   *
-   * @return the color
-   */
-  @NonNull Optional<Color> color();
-
-  /**
-   * Checks if this role is mentionable.
-   *
-   * @return {@code true} if mentionable, {@code false} otherwise
-   */
-  boolean mentionable();
-
-  @Override
-  default @NonNull String mention() {
-    return "<@&" + this.id() + ">";
-  }
-
-  /**
-   * Checks if this role is managed by an integration.
-   *
-   * @return {@code true} if managed by an integration, {@code false} otherwise
-   */
-  boolean managed();
-
-  /**
-   * Checks if this role is hoisted.
-   *
-   * @return {@code true} if hoisted, {@code false} otherwise
-   */
-  boolean hoist();
+public interface Permission {
+  int CREATE_INSTANT_INVITE = 0x00000001;
+  int KICK_MEMBERS = 0x00000002;
+  int BAN_MEMBERS = 0x00000004;
+  int ADMINISTRATOR = 0x00000008;
+  int MANAGE_CHANNELS = 0x00000010;
+  int MANAGE_GUILD = 0x00000020;
+  int ADD_REACTIONS = 0x00000040;
+  int VIEW_AUDIT_LOG = 0x00000080;
+  int VIEW_CHANNEL = 0x00000400;
+  int SEND_MESSAGES = 0x00000800;
+  int SEND_TTS_MESSAGES = 0x00001000;
+  int MANAGE_MESSAGES = 0x00002000;
+  int EMBED_LINKS = 0x00004000;
+  int ATTACH_FILES = 0x00008000;
+  int READ_MESSAGE_HISTORY = 0x00010000;
+  int MENTION_EVERYONE = 0x00020000;
+  int USE_EXTERNAL_EMOJIS = 0x00040000;
+  int CONNECT = 0x00100000;
+  int SPEAK = 0x00200000;
+  int MUTE_MEMBERS = 0x00400000;
+  int DEAFEN_MEMBERS = 0x00800000;
+  int MOVE_MEMBERS = 0x01000000;
+  int USE_VAD = 0x02000000;
+  int CHANGE_NICKNAME = 0x04000000;
+  int MANAGE_NICKNAMES = 0x08000000;
+  int MANAGE_ROLES = 0x10000000;
+  int MANAGE_WEBHOOKS = 0x20000000;
+  int MANAGE_EMOJIS = 0x40000000;
 }

@@ -21,50 +21,37 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-package net.kyori.kassel.guild.role;
+package net.kyori.kassel.channel.message;
 
-import net.kyori.kassel.Mentionable;
-import net.kyori.kassel.snowflake.Snowflaked;
-import net.kyori.lunar.Named;
+import net.kyori.cereal.Document;
+import net.kyori.kassel.channel.message.embed.Embed;
 import org.checkerframework.checker.nullness.qual.NonNull;
 
-import java.awt.Color;
-import java.util.Optional;
-
 /**
- * A role.
+ * Partials that make up a whole {@link Message}.
  */
-public interface Role extends Mentionable, Named, Snowflaked {
+public interface MessagePartial {
   /**
-   * Gets the color.
-   *
-   * @return the color
+   * A partial representing content.
    */
-  @NonNull Optional<Color> color();
-
-  /**
-   * Checks if this role is mentionable.
-   *
-   * @return {@code true} if mentionable, {@code false} otherwise
-   */
-  boolean mentionable();
-
-  @Override
-  default @NonNull String mention() {
-    return "<@&" + this.id() + ">";
+  interface ContentPartial extends Document {
+    /**
+     * Gets the content.
+     *
+     * @return the content
+     */
+    @NonNull String content();
   }
 
   /**
-   * Checks if this role is managed by an integration.
-   *
-   * @return {@code true} if managed by an integration, {@code false} otherwise
+   * A partial representing an embed.
    */
-  boolean managed();
-
-  /**
-   * Checks if this role is hoisted.
-   *
-   * @return {@code true} if hoisted, {@code false} otherwise
-   */
-  boolean hoist();
+  interface EmbedPartial extends Document {
+    /**
+     * Gets the embed.
+     *
+     * @return the embed
+     */
+    @NonNull Embed embed();
+  }
 }

@@ -21,50 +21,24 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-package net.kyori.kassel.guild.role;
+package net.kyori.kassel.client;
 
-import net.kyori.kassel.Mentionable;
-import net.kyori.kassel.snowflake.Snowflaked;
-import net.kyori.lunar.Named;
+import net.kyori.kassel.Connectable;
+import net.kyori.kassel.guild.Guild;
+import net.kyori.kassel.snowflake.Snowflake;
 import org.checkerframework.checker.nullness.qual.NonNull;
 
-import java.awt.Color;
 import java.util.Optional;
 
 /**
- * A role.
+ * A client.
  */
-public interface Role extends Mentionable, Named, Snowflaked {
+public interface Client extends Connectable {
   /**
-   * Gets the color.
+   * Gets a guild by its snowflake id.
    *
-   * @return the color
+   * @param id the snowflake id
+   * @return the guild
    */
-  @NonNull Optional<Color> color();
-
-  /**
-   * Checks if this role is mentionable.
-   *
-   * @return {@code true} if mentionable, {@code false} otherwise
-   */
-  boolean mentionable();
-
-  @Override
-  default @NonNull String mention() {
-    return "<@&" + this.id() + ">";
-  }
-
-  /**
-   * Checks if this role is managed by an integration.
-   *
-   * @return {@code true} if managed by an integration, {@code false} otherwise
-   */
-  boolean managed();
-
-  /**
-   * Checks if this role is hoisted.
-   *
-   * @return {@code true} if hoisted, {@code false} otherwise
-   */
-  boolean hoist();
+  @NonNull Optional<Guild> guild(final @Snowflake long id);
 }

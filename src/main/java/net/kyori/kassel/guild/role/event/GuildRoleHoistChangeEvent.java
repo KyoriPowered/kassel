@@ -21,50 +21,23 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-package net.kyori.kassel.guild.role;
-
-import net.kyori.kassel.Mentionable;
-import net.kyori.kassel.snowflake.Snowflaked;
-import net.kyori.lunar.Named;
-import org.checkerframework.checker.nullness.qual.NonNull;
-
-import java.awt.Color;
-import java.util.Optional;
+package net.kyori.kassel.guild.role.event;
 
 /**
- * A role.
+ * An event posted when a guild role's hoist state is changed.
  */
-public interface Role extends Mentionable, Named, Snowflaked {
+public interface GuildRoleHoistChangeEvent extends GuildRoleChangeEvent {
   /**
-   * Gets the color.
+   * Gets the old hoist state.
    *
-   * @return the color
+   * @return the old hoist state
    */
-  @NonNull Optional<Color> color();
+  boolean oldHoist();
 
   /**
-   * Checks if this role is mentionable.
+   * Gets the new hoist state.
    *
-   * @return {@code true} if mentionable, {@code false} otherwise
+   * @return the new hoist state
    */
-  boolean mentionable();
-
-  @Override
-  default @NonNull String mention() {
-    return "<@&" + this.id() + ">";
-  }
-
-  /**
-   * Checks if this role is managed by an integration.
-   *
-   * @return {@code true} if managed by an integration, {@code false} otherwise
-   */
-  boolean managed();
-
-  /**
-   * Checks if this role is hoisted.
-   *
-   * @return {@code true} if hoisted, {@code false} otherwise
-   */
-  boolean hoist();
+  boolean newHoist();
 }
