@@ -23,6 +23,7 @@
  */
 package net.kyori.kassel.channel.message.embed;
 
+import com.google.common.collect.Iterators;
 import net.kyori.cereal.Document;
 import org.checkerframework.checker.nullness.qual.NonNull;
 import org.checkerframework.checker.nullness.qual.Nullable;
@@ -31,6 +32,7 @@ import java.awt.Color;
 import java.time.Instant;
 import java.util.List;
 import java.util.Optional;
+import java.util.ServiceLoader;
 
 /**
  * An embed.
@@ -315,7 +317,7 @@ public interface Embed extends Document {
      *
      * @return the text
      */
-    @NonNull String text();
+    @NonNull Optional<String> text();
 
     /**
      * Gets the icon.
@@ -348,4 +350,8 @@ public interface Embed extends Document {
      */
     @NonNull Optional<String> url();
   }
+}
+
+final class Embed0 {
+  static final EmbedBuilderFactory BUILDER = Iterators.getOnlyElement(ServiceLoader.load(EmbedBuilderFactory.class).iterator());
 }

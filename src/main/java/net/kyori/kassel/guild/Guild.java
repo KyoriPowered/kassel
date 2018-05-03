@@ -24,6 +24,7 @@
 package net.kyori.kassel.guild;
 
 import net.kyori.kassel.channel.Channel;
+import net.kyori.kassel.guild.member.Member;
 import net.kyori.kassel.guild.role.Role;
 import net.kyori.kassel.snowflake.Snowflake;
 import net.kyori.kassel.snowflake.Snowflaked;
@@ -43,6 +44,14 @@ public interface Guild extends Named, Snowflaked {
    * @return the channel
    */
   @NonNull Optional<Channel> channel(final @Snowflake long id);
+
+  /**
+   * Gets a member by their snowflake id.
+   *
+   * @param id the snowflake id
+   * @return the member
+   */
+  @NonNull Optional<Member> member(final @Snowflake long id);
 
   /**
    * Gets a role by its snowflake id.

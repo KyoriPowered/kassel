@@ -26,6 +26,7 @@ package net.kyori.kassel.client;
 import net.kyori.kassel.Connectable;
 import net.kyori.kassel.guild.Guild;
 import net.kyori.kassel.snowflake.Snowflake;
+import net.kyori.kassel.user.User;
 import org.checkerframework.checker.nullness.qual.NonNull;
 
 import java.util.Optional;
@@ -41,4 +42,12 @@ public interface Client extends Connectable {
    * @return the guild
    */
   @NonNull Optional<Guild> guild(final @Snowflake long id);
+
+  /**
+   * Gets a user by their snowflake id.
+   *
+   * @param id the snowflake id
+   * @return the user
+   */
+  @NonNull Optional<User> user(final @Snowflake long id);
 }
