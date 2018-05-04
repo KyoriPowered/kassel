@@ -58,7 +58,8 @@ signing {
 
 jar {
   manifest.attributes(
-    'Automatic-Module-Name': 'net.kyori.kassel'
+    'Automatic-Module-Name': 'net.kyori.kassel',
+    'Implementation-Version': project.version + getGitHash()
   )
 }
 
@@ -110,4 +111,10 @@ if(project.hasProperty('sonatypeUsername') && project.hasProperty('sonatypePassw
       }
     }
   }
+}
+
+def getGitHash() {
+  def process = 'git rev-parse --short HEAD'.execute(null as String[], projectDir)
+  process.waitFor()
+  return '-' + (process.exitValue() ? 'unknown' : process.text.trim())
 }
