@@ -39,6 +39,19 @@ import java.util.ServiceLoader;
  */
 public interface Embed extends Document {
   /**
+   * The maximum length of the title.
+   */
+  int MAX_TITLE_LENGTH = 256;
+  /**
+   * The maximum length of the description.
+   */
+  int MAX_DESCRIPTION_LENGTH = 2048;
+  /**
+   * The maximum number of fields.
+   */
+  int MAX_FIELD_COUNT = 25;
+
+  /**
    * Creates a new embed builder.
    *
    * @return the new embed builder
@@ -261,6 +274,11 @@ public interface Embed extends Document {
    */
   interface Author extends Document {
     /**
+     * The maximum length of the name.
+     */
+    int MAX_NAME_LENGTH = 256;
+
+    /**
      * Gets the name.
      *
      * @return the name
@@ -287,6 +305,15 @@ public interface Embed extends Document {
    */
   interface Field extends Document {
     /**
+     * The maximum length of the name.
+     */
+    int MAX_NAME_LENGTH = 256;
+    /**
+     * The maximum length of the value.
+     */
+    int MAX_VALUE_LENGTH = 1024;
+
+    /**
      * Gets the name.
      *
      * @return the name
@@ -312,6 +339,11 @@ public interface Embed extends Document {
    * An author.
    */
   interface Footer extends Document {
+    /**
+     * The maximum length of the text.
+     */
+    int MAX_TEXT_LENGTH = 2048;
+
     /**
      * Gets the text.
      *
