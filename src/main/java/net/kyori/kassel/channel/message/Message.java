@@ -24,11 +24,13 @@
 package net.kyori.kassel.channel.message;
 
 import net.kyori.kassel.channel.message.embed.Embed;
+import net.kyori.kassel.guild.role.Role;
 import net.kyori.kassel.snowflake.Snowflaked;
 import net.kyori.kassel.user.User;
 import org.checkerframework.checker.nullness.qual.NonNull;
 
 import java.util.List;
+import java.util.stream.Stream;
 
 /**
  * A message.
@@ -61,6 +63,20 @@ public interface Message extends Snowflaked {
   @NonNull List<Embed> embeds();
 
   /**
+   * Gets a stream of the mentioned users.
+   *
+   * @return a stream of the mentioned users
+   */
+  @NonNull Stream<User> mentionedUsers();
+
+  /**
+   * Gets a stream of the mentioned roles.
+   *
+   * @return a stream of the mentioned roles
+   */
+  @NonNull Stream<Role> mentionedRoles();
+
+  /**
    * Edits this message.
    *
    * @param edit the edit
@@ -68,8 +84,18 @@ public interface Message extends Snowflaked {
   void edit(final @NonNull Edit edit);
 
   /**
+   * Deletes this message.
+   */
+  void delete();
+
+  /**
    * An edit.
    */
-  interface Edit extends MessagePartial.ContentPartial, MessagePartial.EmbedPartial {
+  interface Edit extends MessagePartial {
+    /**
+     * A full edit.
+     */
+    interface Full extends MessagePartial.ContentPartial, MessagePartial.EmbedPartial {
+    }
   }
 }

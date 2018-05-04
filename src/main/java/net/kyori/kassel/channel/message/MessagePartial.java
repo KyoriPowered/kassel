@@ -30,11 +30,11 @@ import org.checkerframework.checker.nullness.qual.NonNull;
 /**
  * Partials that make up a whole {@link Message}.
  */
-public interface MessagePartial {
+public interface MessagePartial extends Document {
   /**
    * A partial representing content.
    */
-  interface ContentPartial extends Document {
+  interface ContentPartial extends Message.Edit, MessagePartial {
     /**
      * Gets the content.
      *
@@ -46,7 +46,7 @@ public interface MessagePartial {
   /**
    * A partial representing an embed.
    */
-  interface EmbedPartial extends Document {
+  interface EmbedPartial extends Message.Edit, MessagePartial {
     /**
      * Gets the embed.
      *

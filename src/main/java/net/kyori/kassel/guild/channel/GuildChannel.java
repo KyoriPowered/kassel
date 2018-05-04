@@ -24,9 +24,17 @@
 package net.kyori.kassel.guild.channel;
 
 import net.kyori.kassel.channel.Channel;
+import net.kyori.kassel.guild.Guild;
+import org.checkerframework.checker.nullness.qual.NonNull;
 
 /**
  * A guild channel.
  */
 public interface GuildChannel extends Channel {
+  /**
+   * Gets the guild.
+   *
+   * @return the guild
+   */
+  @NonNull Guild guild();
 }
