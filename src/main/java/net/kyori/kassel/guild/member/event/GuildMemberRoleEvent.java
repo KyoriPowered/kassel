@@ -21,37 +21,12 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-package net.kyori.kassel.guild.member;
+package net.kyori.kassel.guild.member.event;
 
-import net.kyori.kassel.guild.role.Role;
-import net.kyori.kassel.user.User;
-import org.checkerframework.checker.nullness.qual.NonNull;
-
-import java.util.Optional;
-import java.util.stream.Stream;
+import net.kyori.kassel.guild.role.event.GuildRoleEvent;
 
 /**
- * A guild member.
+ * An event involving a guild member and a role.
  */
-public interface Member {
-  /**
-   * Gets the user.
-   *
-   * @return the user
-   */
-  @NonNull User user();
-
-  /**
-   * Gets the nick.
-   *
-   * @return the nick
-   */
-  @NonNull Optional<String> nick();
-
-  /**
-   * Gets the roles this member has.
-   *
-   * @return the roles this member has
-   */
-  @NonNull Stream<Role> roles();
+public interface GuildMemberRoleEvent extends GuildMemberEvent, GuildRoleEvent {
 }
