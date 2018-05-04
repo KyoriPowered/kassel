@@ -23,6 +23,7 @@
  */
 package net.kyori.kassel.user;
 
+import net.kyori.kassel.Mentionable;
 import net.kyori.kassel.snowflake.Snowflaked;
 import org.checkerframework.checker.nullness.qual.NonNull;
 
@@ -31,7 +32,7 @@ import java.util.Optional;
 /**
  * A user.
  */
-public interface User extends Snowflaked {
+public interface User extends Mentionable, Snowflaked {
   /**
    * Gets the username.
    *
@@ -45,6 +46,11 @@ public interface User extends Snowflaked {
    * @return the discriminator
    */
   @NonNull String discriminator();
+
+  @Override
+  default @NonNull String mention() {
+    return "<@!" + this.id() + ">";
+  }
 
   /**
    * Gets the avatar.

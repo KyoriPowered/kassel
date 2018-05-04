@@ -21,58 +21,20 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-package net.kyori.kassel.guild;
+package net.kyori.kassel.guild.member.event;
 
-import net.kyori.kassel.channel.Channel;
+import net.kyori.kassel.guild.event.GuildEvent;
 import net.kyori.kassel.guild.member.Member;
-import net.kyori.kassel.guild.role.Role;
-import net.kyori.kassel.snowflake.Snowflake;
-import net.kyori.kassel.snowflake.Snowflaked;
-import net.kyori.lunar.Named;
 import org.checkerframework.checker.nullness.qual.NonNull;
 
-import java.util.Optional;
-import java.util.stream.Stream;
-
 /**
- * A guild.
+ * An event involving a guild member.
  */
-public interface Guild extends Named, Snowflaked {
+public interface GuildMemberEvent extends GuildEvent {
   /**
-   * Gets a stream of all channels.
+   * Gets the member.
    *
-   * @return a stream of all channels
-   */
-  @NonNull Stream<Channel> channels();
-
-  /**
-   * Gets a channel by its snowflake id.
-   *
-   * @param id the snowflake id
-   * @return the channel
-   */
-  @NonNull Optional<Channel> channel(final @Snowflake long id);
-
-  /**
-   * Gets a member by their snowflake id.
-   *
-   * @param id the snowflake id
    * @return the member
    */
-  @NonNull Optional<Member> member(final @Snowflake long id);
-
-  /**
-   * Gets a stream of all roles.
-   *
-   * @return a stream of all roles
-   */
-  @NonNull Stream<Role> roles();
-
-  /**
-   * Gets a role by its snowflake id.
-   *
-   * @param id the snowflake id
-   * @return the role
-   */
-  @NonNull Optional<Role> role(final @Snowflake long id);
+  @NonNull Member member();
 }

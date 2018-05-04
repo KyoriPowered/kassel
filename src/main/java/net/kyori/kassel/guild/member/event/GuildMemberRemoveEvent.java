@@ -21,20 +21,10 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-package net.kyori.kassel.channel.message.emoji;
-
-import net.kyori.kassel.snowflake.Snowflaked;
-import org.checkerframework.checker.nullness.qual.NonNull;
+package net.kyori.kassel.guild.member.event;
 
 /**
- * A custom emoji.
+ * An event posted when a guild member is removed.
  */
-public interface CustomEmoji extends Emoji, Snowflaked {
-  @Override
-  default @NonNull String mention() {
-    if(this.animated()) {
-      return "<a:" + this.name() + ":" + this.id() + ">";
-    }
-    return "<:" + this.name() + ":" + this.id() + ">";
-  }
+public interface GuildMemberRemoveEvent extends GuildMemberEvent {
 }

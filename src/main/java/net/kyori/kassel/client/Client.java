@@ -30,11 +30,19 @@ import net.kyori.kassel.user.User;
 import org.checkerframework.checker.nullness.qual.NonNull;
 
 import java.util.Optional;
+import java.util.stream.Stream;
 
 /**
  * A client.
  */
 public interface Client extends Connectable {
+  /**
+   * Gets a stream of all guilds.
+   *
+   * @return a stream of all guilds
+   */
+  @NonNull Stream<Guild> guilds();
+
   /**
    * Gets a guild by its snowflake id.
    *
