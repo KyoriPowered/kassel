@@ -26,8 +26,11 @@ package net.kyori.kassel.client;
 import net.kyori.kassel.Connectable;
 import net.kyori.kassel.guild.Guild;
 import net.kyori.kassel.snowflake.Snowflake;
+import net.kyori.kassel.user.Activity;
+import net.kyori.kassel.user.Status;
 import net.kyori.kassel.user.User;
 import org.checkerframework.checker.nullness.qual.NonNull;
+import org.checkerframework.checker.nullness.qual.Nullable;
 
 import java.util.Optional;
 import java.util.stream.Stream;
@@ -58,4 +61,19 @@ public interface Client extends Connectable {
    * @return the user
    */
   @NonNull Optional<User> user(final @Snowflake long id);
+
+  /**
+   * Sets the status.
+   *
+   * @param status the status
+   */
+  void status(final @NonNull Status status);
+
+  /**
+   * Sets the activity.
+   *
+   * @param activityType the activity type
+   * @param activityName the activity name
+   */
+  void activity(final @Nullable Activity activityType, final @Nullable String activityName);
 }
