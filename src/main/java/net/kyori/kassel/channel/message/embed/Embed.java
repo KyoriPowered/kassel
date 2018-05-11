@@ -131,6 +131,13 @@ public interface Embed extends Document {
   @NonNull Optional<Footer> footer();
 
   /**
+   * Gets a builder from this embed.
+   *
+   * @return a builder
+   */
+  @NonNull Builder toBuilder();
+
+  /**
    * An embed builder.
    */
   interface Builder {

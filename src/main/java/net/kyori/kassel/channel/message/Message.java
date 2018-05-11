@@ -24,6 +24,7 @@
 package net.kyori.kassel.channel.message;
 
 import net.kyori.kassel.channel.message.embed.Embed;
+import net.kyori.kassel.channel.message.emoji.Emoji;
 import net.kyori.kassel.guild.role.Role;
 import net.kyori.kassel.snowflake.Snowflaked;
 import net.kyori.kassel.user.User;
@@ -77,6 +78,13 @@ public interface Message extends Snowflaked {
   @NonNull Stream<Role> mentionedRoles();
 
   /**
+   * Gets the reactions.
+   *
+   * @return the reactions
+   */
+  @NonNull Reactions reactions();
+
+  /**
    * Edits this message.
    *
    * @param edit the edit
@@ -97,5 +105,37 @@ public interface Message extends Snowflaked {
      */
     interface Full extends MessagePartial.ContentPartial, MessagePartial.EmbedPartial {
     }
+  }
+
+  /**
+   * The reactions.
+   */
+  interface Reactions {
+    /**
+     * Adds a reaction.
+     *
+     * @param emoji the emoji
+     */
+    void add(final @NonNull Emoji emoji);
+
+    /**
+     * Removes a reaction.
+     *
+     * @param emoji the emoji
+     */
+    void remove(final @NonNull Emoji emoji);
+
+    /**
+     * Removes a reaction.
+     *
+     * @param user the user
+     * @param emoji the emoji
+     */
+    void remove(final @NonNull User user,  final @NonNull Emoji emoji);
+
+    /**
+     * Removes all reactions.
+     */
+    void removeAll();
   }
 }

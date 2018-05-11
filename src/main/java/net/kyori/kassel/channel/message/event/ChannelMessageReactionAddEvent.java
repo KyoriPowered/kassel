@@ -24,9 +24,17 @@
 package net.kyori.kassel.channel.message.event;
 
 import net.kyori.kassel.channel.message.emoji.event.EmojiEvent;
+import net.kyori.kassel.snowflake.Snowflaked;
+import org.checkerframework.checker.nullness.qual.NonNull;
 
 /**
  * An event posted when a reaction is added to a channel message.
  */
 public interface ChannelMessageReactionAddEvent extends ChannelMessageReactionEvent, EmojiEvent {
+  /**
+   * Gets the user.
+   *
+   * @return the user
+   */
+  @NonNull Snowflaked user();
 }
