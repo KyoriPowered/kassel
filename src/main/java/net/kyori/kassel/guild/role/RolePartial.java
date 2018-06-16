@@ -23,62 +23,24 @@
  */
 package net.kyori.kassel.guild.role;
 
-import net.kyori.kassel.Mentionable;
-import net.kyori.kassel.snowflake.Snowflaked;
-import net.kyori.lunar.Named;
-import org.checkerframework.checker.nullness.qual.NonNull;
+import net.kyori.cereal.Document;
+import org.checkerframework.checker.nullness.qual.Nullable;
 
 import java.awt.Color;
-import java.util.Optional;
 
 /**
- * A role.
+ * Partials that make up a whole {@link Role}.
  */
-public interface Role extends Mentionable, Named, Snowflaked {
+public interface RolePartial extends Document {
   /**
-   * Gets the color.
-   *
-   * @return the color
+   * A partial representing the color.
    */
-  @NonNull Optional<Color> color();
-
-  /**
-   * Checks if this role is mentionable.
-   *
-   * @return {@code true} if mentionable, {@code false} otherwise
-   */
-  boolean mentionable();
-
-  @Override
-  default @NonNull String mention() {
-    return "<@&" + this.id() + ">";
-  }
-
-  /**
-   * Checks if this role is managed by an integration.
-   *
-   * @return {@code true} if managed by an integration, {@code false} otherwise
-   */
-  boolean managed();
-
-  /**
-   * Checks if this role is hoisted.
-   *
-   * @return {@code true} if hoisted, {@code false} otherwise
-   */
-  boolean hoist();
-
-  /**
-   * Edits this role.
-   *
-   * @param edit the edit
-   * @param <E> the edit type
-   */
-  <E extends Edit> void edit(final @NonNull E edit);
-
-  /**
-   * An edit.
-   */
-  interface Edit extends RolePartial {
+  interface ColorPartial extends Role.Edit, RolePartial {
+    /**
+     * Gets the color.
+     *
+     * @return the color
+     */
+    @Nullable Color color();
   }
 }
