@@ -43,4 +43,16 @@ public interface RolePartial extends Document {
      */
     @Nullable Color color();
   }
+
+  /**
+   * A partial representing the mentionable state.
+   */
+  interface MentionablePartial extends Role.Edit, RolePartial {
+    /**
+     * Tests if the role is mentionable.
+     *
+     * @return {@code true} if mentionable, {@code false} otherwise
+     */
+    boolean mentionable();
+  }
 }
