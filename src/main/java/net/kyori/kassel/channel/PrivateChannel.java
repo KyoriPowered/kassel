@@ -21,57 +21,10 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-package net.kyori.kassel.user;
-
-import net.kyori.kassel.Mentionable;
-import net.kyori.kassel.channel.PrivateChannel;
-import net.kyori.kassel.snowflake.Snowflaked;
-import org.checkerframework.checker.nullness.qual.NonNull;
-
-import java.util.Optional;
-import java.util.concurrent.CompletableFuture;
+package net.kyori.kassel.channel;
 
 /**
- * A user.
+ * A private channel.
  */
-public interface User extends Mentionable, Snowflaked {
-  /**
-   * Gets the username.
-   *
-   * @return the username
-   */
-  @NonNull String username();
-
-  /**
-   * Gets the discriminator.
-   *
-   * @return the discriminator
-   */
-  @NonNull String discriminator();
-
-  @Override
-  default @NonNull String mention() {
-    return "<@!" + this.id() + ">";
-  }
-
-  /**
-   * Gets the avatar.
-   *
-   * @return the avatar
-   */
-  @NonNull Optional<String> avatar();
-
-  /**
-   * Checks if this user is a bot.
-   *
-   * @return {@code true} if this user is a bot, {@code false} otherwise
-   */
-  boolean bot();
-
-  /**
-   * Gets the private channel.
-   *
-   * @return the private channel
-   */
-  @NonNull CompletableFuture<PrivateChannel> channel();
+public interface PrivateChannel extends TextChannel, VoiceChannel {
 }
