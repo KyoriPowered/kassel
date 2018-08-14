@@ -49,9 +49,35 @@ public interface Member {
   @NonNull Optional<String> nick();
 
   /**
-   * Gets the roles this member has.
+   * Gets roles.
    *
-   * @return the roles this member has
+   * @return the roles
    */
-  @NonNull Stream<Role> roles();
+  @NonNull Roles roles();
+
+  /**
+   * A guild member's roles.
+   */
+  interface Roles {
+    /**
+     * Gets the roles this member has.
+     *
+     * @return the roles this member has
+     */
+    @NonNull Stream<Role> all();
+
+    /**
+     * Adds a role.
+     *
+     * @param role the role
+     */
+    void add(final @NonNull Role role);
+
+    /**
+     * Removes a role.
+     *
+     * @param role the role
+     */
+    void remove(final @NonNull Role role);
+  }
 }
