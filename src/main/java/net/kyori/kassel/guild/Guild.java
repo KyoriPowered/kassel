@@ -23,13 +23,13 @@
  */
 package net.kyori.kassel.guild;
 
+import net.kyori.kassel.Named;
 import net.kyori.kassel.channel.Channel;
 import net.kyori.kassel.channel.message.emoji.CustomEmoji;
 import net.kyori.kassel.guild.member.Member;
 import net.kyori.kassel.guild.role.Role;
 import net.kyori.kassel.snowflake.Snowflake;
 import net.kyori.kassel.snowflake.Snowflaked;
-import net.kyori.lunar.Named;
 import org.checkerframework.checker.nullness.qual.NonNull;
 
 import java.util.Optional;

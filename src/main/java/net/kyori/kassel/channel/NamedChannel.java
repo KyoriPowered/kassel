@@ -23,7 +23,7 @@
  */
 package net.kyori.kassel.channel;
 
-import net.kyori.lunar.Named;
+import net.kyori.kassel.Named;
 
 /**
  * A named channel.

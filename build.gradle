@@ -33,7 +33,6 @@ repositories {
 
 dependencies {
   compile 'net.kyori:cereal:1.0.5-SNAPSHOT'
-  compile 'net.kyori:lunar:1.0.6-SNAPSHOT'
 }
 
 task javadocJar(type: Jar) {

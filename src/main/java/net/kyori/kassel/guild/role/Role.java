@@ -24,8 +24,8 @@
 package net.kyori.kassel.guild.role;
 
 import net.kyori.kassel.Mentionable;
+import net.kyori.kassel.Named;
 import net.kyori.kassel.snowflake.Snowflaked;
-import net.kyori.lunar.Named;
 import org.checkerframework.checker.nullness.qual.NonNull;
 
 import java.awt.Color;

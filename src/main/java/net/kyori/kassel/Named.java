@@ -21,19 +21,18 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-package net.kyori.kassel.channel.message.emoji;
+package net.kyori.kassel;
 
-import net.kyori.kassel.Mentionable;
-import net.kyori.kassel.Named;
+import org.checkerframework.checker.nullness.qual.NonNull;
 
 /**
- * An emoji.
+ * Something with a name.
  */
-public interface Emoji extends Mentionable, Named {
+public interface Named {
   /**
-   * Checks if this emoji is animated.
+   * Gets the name.
    *
-   * @return {@code true} if this emoji is animated, {@code false} otherwise
+   * @return the name
    */
-  boolean animated();
+  @NonNull String name();
 }
