@@ -23,13 +23,12 @@
  */
 package net.kyori.kassel.user;
 
+import java.util.concurrent.CompletableFuture;
 import net.kyori.kassel.Mentionable;
 import net.kyori.kassel.channel.PrivateChannel;
 import net.kyori.kassel.snowflake.Snowflaked;
+import net.kyori.mu.Maybe;
 import org.checkerframework.checker.nullness.qual.NonNull;
-
-import java.util.Optional;
-import java.util.concurrent.CompletableFuture;
 
 /**
  * A user.
@@ -59,7 +58,7 @@ public interface User extends Mentionable, Snowflaked {
    *
    * @return the avatar
    */
-  @NonNull Optional<String> avatar();
+  @NonNull Maybe<String> avatar();
 
   /**
    * Checks if this user is a bot.

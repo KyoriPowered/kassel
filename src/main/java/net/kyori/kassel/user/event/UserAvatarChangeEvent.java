@@ -23,9 +23,8 @@
  */
 package net.kyori.kassel.user.event;
 
+import net.kyori.mu.Maybe;
 import org.checkerframework.checker.nullness.qual.NonNull;
-
-import java.util.Optional;
 
 /**
  * An event posted when a user's avatar is changed.
@@ -36,12 +35,12 @@ public interface UserAvatarChangeEvent extends UserChangeEvent {
    *
    * @return the old avatar
    */
-  @NonNull Optional<String> oldAvatar();
+  @NonNull Maybe<String> oldAvatar();
 
   /**
    * Gets the new avatar.
    *
    * @return the new avatar
    */
-  @NonNull Optional<String> newAvatar();
+  @NonNull Maybe<String> newAvatar();
 }

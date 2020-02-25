@@ -23,10 +23,9 @@
  */
 package net.kyori.kassel.guild.role;
 
+import java.awt.Color;
 import net.kyori.cereal.Document;
 import org.checkerframework.checker.nullness.qual.Nullable;
-
-import java.awt.Color;
 
 /**
  * Partials that make up a whole {@link Role}.

@@ -23,13 +23,12 @@
  */
 package net.kyori.kassel.guild.role;
 
+import java.awt.Color;
 import net.kyori.kassel.Mentionable;
 import net.kyori.kassel.Named;
 import net.kyori.kassel.snowflake.Snowflaked;
+import net.kyori.mu.Maybe;
 import org.checkerframework.checker.nullness.qual.NonNull;
-
-import java.awt.Color;
-import java.util.Optional;
 
 /**
  * A role.
@@ -40,7 +39,7 @@ public interface Role extends Mentionable, Named, Snowflaked {
    *
    * @return the color
    */
-  @NonNull Optional<Color> color();
+  @NonNull Maybe<Color> color();
 
   /**
    * Checks if this role is mentionable.

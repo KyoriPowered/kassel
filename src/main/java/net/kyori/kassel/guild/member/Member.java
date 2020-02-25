@@ -23,12 +23,11 @@
  */
 package net.kyori.kassel.guild.member;
 
+import java.util.stream.Stream;
 import net.kyori.kassel.guild.role.Role;
 import net.kyori.kassel.user.User;
+import net.kyori.mu.Maybe;
 import org.checkerframework.checker.nullness.qual.NonNull;
-
-import java.util.Optional;
-import java.util.stream.Stream;
 
 /**
  * A guild member.
@@ -46,7 +45,7 @@ public interface Member {
    *
    * @return the nick
    */
-  @NonNull Optional<String> nick();
+  @NonNull Maybe<String> nick();
 
   /**
    * Gets roles.

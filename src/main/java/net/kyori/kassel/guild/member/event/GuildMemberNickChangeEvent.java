@@ -23,9 +23,8 @@
  */
 package net.kyori.kassel.guild.member.event;
 
+import net.kyori.mu.Maybe;
 import org.checkerframework.checker.nullness.qual.NonNull;
-
-import java.util.Optional;
 
 /**
  * An event posted when a guild members's nick is changed.
@@ -36,12 +35,12 @@ public interface GuildMemberNickChangeEvent extends GuildMemberEvent {
    *
    * @return the old nick
    */
-  @NonNull Optional<String> oldNick();
+  @NonNull Maybe<String> oldNick();
 
   /**
    * Gets the new nick.
    *
    * @return the new nick
    */
-  @NonNull Optional<String> newNick();
+  @NonNull Maybe<String> newNick();
 }

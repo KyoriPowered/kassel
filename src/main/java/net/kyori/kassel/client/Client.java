@@ -23,17 +23,16 @@
  */
 package net.kyori.kassel.client;
 
+import java.util.stream.Stream;
 import net.kyori.kassel.Connectable;
 import net.kyori.kassel.guild.Guild;
 import net.kyori.kassel.snowflake.Snowflake;
 import net.kyori.kassel.user.Activity;
 import net.kyori.kassel.user.Status;
 import net.kyori.kassel.user.User;
+import net.kyori.mu.Maybe;
 import org.checkerframework.checker.nullness.qual.NonNull;
 import org.checkerframework.checker.nullness.qual.Nullable;
-
-import java.util.Optional;
-import java.util.stream.Stream;
 
 /**
  * A client.
@@ -52,7 +51,7 @@ public interface Client extends Connectable {
    * @param id the snowflake id
    * @return the guild
    */
-  @NonNull Optional<Guild> guild(final @Snowflake long id);
+  @NonNull Maybe<Guild> guild(final @Snowflake long id);
 
   /**
    * Gets a user by their snowflake id.
@@ -60,7 +59,7 @@ public interface Client extends Connectable {
    * @param id the snowflake id
    * @return the user
    */
-  @NonNull Optional<User> user(final @Snowflake long id);
+  @NonNull Maybe<User> user(final @Snowflake long id);
 
   /**
    * Sets the status.

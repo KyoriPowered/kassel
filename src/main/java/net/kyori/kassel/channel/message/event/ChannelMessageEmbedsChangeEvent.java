@@ -23,10 +23,9 @@
  */
 package net.kyori.kassel.channel.message.event;
 
+import java.util.List;
 import net.kyori.kassel.channel.message.embed.Embed;
 import org.checkerframework.checker.nullness.qual.NonNull;
-
-import java.util.List;
 
 /**
  * An event posted when the embeds of a message in a channel is changed.

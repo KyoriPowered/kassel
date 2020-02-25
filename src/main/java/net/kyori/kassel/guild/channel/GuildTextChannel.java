@@ -26,9 +26,8 @@ package net.kyori.kassel.guild.channel;
 import net.kyori.kassel.Mentionable;
 import net.kyori.kassel.channel.NamedChannel;
 import net.kyori.kassel.channel.TextChannel;
+import net.kyori.mu.Maybe;
 import org.checkerframework.checker.nullness.qual.NonNull;
-
-import java.util.Optional;
 
 /**
  * A guild text channel.
@@ -44,5 +43,5 @@ public interface GuildTextChannel extends GuildChannel, Mentionable, NamedChanne
    *
    * @return the topic
    */
-  @NonNull Optional<String> topic();
+  @NonNull Maybe<String> topic();
 }

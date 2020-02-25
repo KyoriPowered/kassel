@@ -23,12 +23,11 @@
  */
 package net.kyori.kassel.message;
 
+import java.util.concurrent.CompletableFuture;
 import net.kyori.kassel.channel.message.Message;
 import net.kyori.kassel.channel.message.embed.Embed;
 import org.checkerframework.checker.nullness.qual.NonNull;
 import org.checkerframework.checker.nullness.qual.Nullable;
-
-import java.util.concurrent.CompletableFuture;
 
 /**
  * Something that can can be messaged.

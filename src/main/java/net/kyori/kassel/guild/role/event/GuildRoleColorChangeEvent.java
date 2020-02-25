@@ -23,10 +23,9 @@
  */
 package net.kyori.kassel.guild.role.event;
 
-import org.checkerframework.checker.nullness.qual.NonNull;
-
 import java.awt.Color;
-import java.util.Optional;
+import net.kyori.mu.Maybe;
+import org.checkerframework.checker.nullness.qual.NonNull;
 
 /**
  * An event posted when a guild role's color is changed.
@@ -37,12 +36,12 @@ public interface GuildRoleColorChangeEvent extends GuildRoleChangeEvent {
    *
    * @return the old color
    */
-  @NonNull Optional<Color> oldColor();
+  @NonNull Maybe<Color> oldColor();
 
   /**
    * Gets the new color.
    *
    * @return the new color
    */
-  @NonNull Optional<Color> newColor();
+  @NonNull Maybe<Color> newColor();
 }

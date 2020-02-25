@@ -24,15 +24,14 @@
 package net.kyori.kassel.channel.message.embed;
 
 import com.google.common.collect.Iterators;
-import net.kyori.cereal.Document;
-import org.checkerframework.checker.nullness.qual.NonNull;
-import org.checkerframework.checker.nullness.qual.Nullable;
-
 import java.awt.Color;
 import java.time.Instant;
 import java.util.List;
-import java.util.Optional;
 import java.util.ServiceLoader;
+import net.kyori.cereal.Document;
+import net.kyori.mu.Maybe;
+import org.checkerframework.checker.nullness.qual.NonNull;
+import org.checkerframework.checker.nullness.qual.Nullable;
 
 /**
  * An embed.
@@ -65,56 +64,56 @@ public interface Embed extends Document {
    *
    * @return the title
    */
-  @NonNull Optional<String> title();
+  @NonNull Maybe<String> title();
 
   /**
    * Gets the description.
    *
    * @return the description
    */
-  @NonNull Optional<String> description();
+  @NonNull Maybe<String> description();
 
   /**
    * Gets the url.
    *
    * @return the url
    */
-  @NonNull Optional<String> url();
+  @NonNull Maybe<String> url();
 
   /**
    * Gets the color.
    *
    * @return the color
    */
-  @NonNull Optional<Color> color();
+  @NonNull Maybe<Color> color();
 
   /**
    * Gets the timestamp.
    *
    * @return the timestamp
    */
-  @NonNull Optional<Instant> timestamp();
+  @NonNull Maybe<Instant> timestamp();
 
   /**
    * Gets the author.
    *
    * @return the author
    */
-  @NonNull Optional<Author> author();
+  @NonNull Maybe<Author> author();
 
   /**
    * Gets the image.
    *
    * @return the image
    */
-  @NonNull Optional<Image> image();
+  @NonNull Maybe<Image> image();
 
   /**
    * Gets the thumbnail.
    *
    * @return the thumbnail
    */
-  @NonNull Optional<Thumbnail> thumbnail();
+  @NonNull Maybe<Thumbnail> thumbnail();
 
   /**
    * Gets the fields.
@@ -128,7 +127,7 @@ public interface Embed extends Document {
    *
    * @return the footer
    */
-  @NonNull Optional<Footer> footer();
+  @NonNull Maybe<Footer> footer();
 
   /**
    * Gets a builder from this embed.
@@ -290,21 +289,21 @@ public interface Embed extends Document {
      *
      * @return the name
      */
-    @NonNull Optional<String> name();
+    @NonNull Maybe<String> name();
 
     /**
      * Gets the url.
      *
      * @return the url
      */
-    @NonNull Optional<String> url();
+    @NonNull Maybe<String> url();
 
     /**
      * Gets the icon.
      *
      * @return the icon
      */
-    @NonNull Optional<String> icon();
+    @NonNull Maybe<String> icon();
   }
 
   /**
@@ -356,14 +355,14 @@ public interface Embed extends Document {
      *
      * @return the text
      */
-    @NonNull Optional<String> text();
+    @NonNull Maybe<String> text();
 
     /**
      * Gets the icon.
      *
      * @return the icon
      */
-    @NonNull Optional<String> icon();
+    @NonNull Maybe<String> icon();
   }
 
   /**
@@ -375,7 +374,7 @@ public interface Embed extends Document {
      *
      * @return the url
      */
-    @NonNull Optional<String> url();
+    @NonNull Maybe<String> url();
   }
 
   /**
@@ -387,7 +386,7 @@ public interface Embed extends Document {
      *
      * @return the url
      */
-    @NonNull Optional<String> url();
+    @NonNull Maybe<String> url();
   }
 }
 

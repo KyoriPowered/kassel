@@ -26,9 +26,8 @@ package net.kyori.kassel.channel;
 import net.kyori.kassel.channel.message.Message;
 import net.kyori.kassel.message.Messageable;
 import net.kyori.kassel.snowflake.Snowflake;
+import net.kyori.mu.Maybe;
 import org.checkerframework.checker.nullness.qual.NonNull;
-
-import java.util.Optional;
 
 /**
  * A text channel.
@@ -40,5 +39,5 @@ public interface TextChannel extends Channel, Messageable {
    * @param id the snowflake id
    * @return the message
    */
-  @NonNull Optional<Message> message(final @Snowflake long id);
+  @NonNull Maybe<Message> message(final @Snowflake long id);
 }

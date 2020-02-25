@@ -23,15 +23,14 @@
  */
 package net.kyori.kassel.channel.message;
 
+import java.util.List;
+import java.util.stream.Stream;
 import net.kyori.kassel.channel.message.embed.Embed;
 import net.kyori.kassel.channel.message.emoji.Emoji;
 import net.kyori.kassel.guild.role.Role;
 import net.kyori.kassel.snowflake.Snowflaked;
 import net.kyori.kassel.user.User;
 import org.checkerframework.checker.nullness.qual.NonNull;
-
-import java.util.List;
-import java.util.stream.Stream;
 
 /**
  * A message.
