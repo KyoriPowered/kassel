@@ -24,6 +24,7 @@
 package net.kyori.kassel.guild.member;
 
 import java.util.stream.Stream;
+import net.kyori.kassel.guild.Guild;
 import net.kyori.kassel.guild.role.Role;
 import net.kyori.kassel.user.User;
 import net.kyori.mu.Maybe;
@@ -33,6 +34,13 @@ import org.checkerframework.checker.nullness.qual.NonNull;
  * A guild member.
  */
 public interface Member {
+  /**
+   * Gets the guild.
+   *
+   * @return the guild
+   */
+  @NonNull Guild guild();
+
   /**
    * Gets the user.
    *

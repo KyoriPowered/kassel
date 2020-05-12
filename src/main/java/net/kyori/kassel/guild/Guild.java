@@ -23,6 +23,7 @@
  */
 package net.kyori.kassel.guild;
 
+import java.util.stream.LongStream;
 import java.util.stream.Stream;
 import net.kyori.kassel.Named;
 import net.kyori.kassel.channel.Channel;
@@ -31,6 +32,7 @@ import net.kyori.kassel.guild.member.Member;
 import net.kyori.kassel.guild.role.Role;
 import net.kyori.kassel.snowflake.Snowflake;
 import net.kyori.kassel.snowflake.Snowflaked;
+import net.kyori.kassel.user.User;
 import net.kyori.mu.Maybe;
 import org.checkerframework.checker.nullness.qual.NonNull;
 
@@ -69,6 +71,16 @@ public interface Guild extends Named, Snowflaked {
   @NonNull Maybe<CustomEmoji> emoji(final @Snowflake long id);
 
   /**
+   * Gets a member.
+   *
+   * @param user the user
+   * @return the member
+   */
+  default @NonNull Maybe<Member> member(final @NonNull User user) {
+    return this.member(user.id());
+  }
+
+  /**
    * Gets a member by their snowflake id.
    *
    * @param id the snowflake id
@@ -82,6 +94,15 @@ public interface Guild extends Named, Snowflaked {
    * @return a stream of all roles
    */
   @NonNull Stream<Role> roles();
+
+  /**
+   * Gets a stream of roles.
+   *
+   * @return a stream of all roles
+   */
+  default @NonNull Stream<Maybe<Role>> roles(final @Snowflake long@NonNull[] ids) {
+    return LongStream.of(ids).mapToObj(this::role);
+  }
 
   /**
    * Gets a role by its snowflake id.
